@@ -9,4 +9,10 @@ echo "Commit the changes to the local repository!"
 git commit -m "`date`"
 
 echo "Commit the changes to the remote git server"
-git push
+git push  origin master
+
+if [ $? -eq 0 ];then
+	echo "SUCESS!"
+else
+	echo "failed!"
+fi
