@@ -34,3 +34,11 @@ Password:
 ```
 
 ### ksql中含有变量
+
+```shell
+  ksql -h ${DB_HOST} -p 54321 -U incsdba -d ${DB_SERVICE_NM} -w -t 2>&1 > /app/mcb/incs/DELETED/maiyp/log/dbMoFilesTmp.${PROV} <<EOF
+    select cdr_file_nm from incsdba.process_state_cdr_file where cdr_file_nm like 'M%_${PROV}_${MONTH}_%' and stat = 'C'; 
+    #sql语句中的筛选字符含有变量时（如：cdr_file_nm like 'M%_${PROV}_${MONTH}_%'），不能使用-c ,-c也需要单引号‘’,会有冲突导致变量不能解析
+  EOF
+```
+
