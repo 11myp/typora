@@ -1,0 +1,23 @@
+1、创建kingbase用户
+groupadd kingbase
+useradd -g kingbase -d /home/kingbase -m kingbase
+passwd kingbase
+
+2、创建server端目录
+su  - kingbase
+mkdir -p /home/kingbase/server
+
+3、将db.zip包和license.dat上传至/home/kingbase/server下,并解压
+unzip db.zip
+
+4、将license.dat拷贝到bin下
+cp /home/kingbase/server/license.dat /home/kingbase/server/bin
+
+5、配置环境变量
+vi /home/kingbase/.baserc
+添加如下内容
+export PATH=/home/kingbase/server/bin:$PATH
+export LD_LIBRARY_PATH=/home/kingbase/server/lib
+source /home/kingbase/.baserc
+
+执行完上面步骤，就可以使用ksql

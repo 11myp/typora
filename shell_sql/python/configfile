@@ -1,0 +1,6 @@
+err_B_result.txt=B文件错单
+imsprocess_result_tmp.txt=ims文件处理情况
+err_result.txt=非ims错单
+process_result_tmp.txt=非ims文件处理情况
+err_result_ims.txt=ims错单
+month_status.txt=月状态文件
